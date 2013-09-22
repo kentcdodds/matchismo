@@ -20,5 +20,6 @@
 
 - (Card *)cardAtIndex:(NSUInteger)index;
 - (void)flipCardAtIndex:(NSUInteger)index;
+- (void)setCardsToMatch:(int)cardsToMatch;
 
 @end

@@ -63,15 +63,12 @@
 
 - (void)setCardsToMatch:(int)cardsToMatch
 {
-    //TODO: Support any number here.
-    switch (cardsToMatch) {
-        case 3:
-            _cardsToMatch = 3;
-            break;
-        default:
-            _cardsToMatch = 2;
-            break;
+    if (cardsToMatch < 2) {
+        cardsToMatch = 2;
+    } else if (cardsToMatch > [self.cards count]) {
+        cardsToMatch = [self.cards count];
     }
+    _cardsToMatch = cardsToMatch;
 }
 
 - (Card *)cardAtIndex:(NSUInteger)index
@@ -94,12 +91,12 @@
                     [matchableContents addObject:otherCard.contents];
                 }
             }
-            if ([matchableCards count] < self.cardsToMatch - 1) {
-                newResult = [NSString stringWithFormat:@"%@ Flipped\nPenalty:%d", card.contents, FLIP_COST];
-            } else {
-                NSString *combinedContents = [matchableContents componentsJoinedByString:@" & "];
-                int matchScore = [card match:matchableCards];
-                if (matchScore) {
+            NSString *combinedContents = [matchableContents componentsJoinedByString:@" & "];
+            int matchScore = [card match:matchableCards];
+            if (matchScore) {
+                if ([matchableCards count] < self.cardsToMatch - 1) {
+                    newResult = [NSString stringWithFormat:@"%@ Flipped\nPenalty:%d", card.contents, FLIP_COST];
+                } else {
                     card.unplayable = YES;
                     for (Card *otherCard in matchableCards) {
                         otherCard.unplayable = YES;
@@ -110,17 +107,17 @@
                      card.contents,
                      combinedContents,
                      matchScore * MATCH_BONUS];
-                } else {
-                    for (Card *otherCard in matchableCards) {
-                        otherCard.faceUp = NO;
-                    }
-                    self.score -= MISMATCH_PENALTY;
-                    newResult =
-                    [NSString stringWithFormat:@"%@ does not match %@\nPenalty: %d",
-                     card.contents,
-                     combinedContents,
-                     MISMATCH_PENALTY];
                 }
+            } else {
+                for (Card *otherCard in matchableCards) {
+                    otherCard.faceUp = NO;
+                }
+                self.score -= MISMATCH_PENALTY;
+                newResult =
+                [NSString stringWithFormat:@"%@ does not match %@\nPenalty: %d",
+                 card.contents,
+                 combinedContents,
+                 MISMATCH_PENALTY];
             }
             self.score -= FLIP_COST;
         }

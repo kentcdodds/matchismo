@@ -8,6 +8,9 @@
 
 #import "PlayingCard.h"
 
+#define SUIT_POINTS     1
+#define RANK_POINTS     4
+
 @implementation PlayingCard
 
 - (NSString *)contents
@@ -41,14 +44,24 @@
 {
     int score = 0;
     
-    if ([otherCards count] == 1) {
-        PlayingCard *otherCard = [otherCards lastObject];
+    for (PlayingCard *otherCard in otherCards) {
         if ([otherCard.suit isEqualToString:self.suit]) {
-            score = 1;
+            score += SUIT_POINTS;
         } else if (otherCard.rank == self.rank) {
-            score = 4;
+            score += RANK_POINTS;
+        } else {
+            return 0; // If they don't all match one way or another, then too bad.
         }
     }
+    /*
+    NSLog([NSString stringWithFormat:@"Card Count: %d", [otherCards count]]);
+    
+    // Multiply score by 0.5 for every card above 1 that matches.
+    if ([otherCards count] > 1) {
+        NSLog([NSString stringWithFormat: @"Multiplying score: %d", score]);
+        score = score * ([otherCards count] + 1) / 2;
+        NSLog([NSString stringWithFormat: @"Multiplied score: %d", score]);
+    }*/
 
     return score;
 }

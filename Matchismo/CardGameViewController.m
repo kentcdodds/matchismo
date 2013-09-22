@@ -16,8 +16,10 @@
 @property (nonatomic) int flipCount;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cardsToMatchLabel;
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
+@property (weak, nonatomic) IBOutlet UIStepper *cardsToMatchStepper;
 
 @property (strong, nonatomic) CardMatchingGame *game;
 
@@ -27,6 +29,7 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
     [self updateUI];
 }
 
@@ -90,6 +93,10 @@
     _game = nil;
     [self setFlipCount:0];
     [self updateUI];
+}
+- (IBAction)updateCardsToMatch:(id)sender {
+    self.cardsToMatchLabel.text = [NSString stringWithFormat:@"Match %d", (int)self.cardsToMatchStepper.value];
+    [self.game setCardsToMatch: (int)self.cardsToMatchStepper.value];
 }
 
 @end
