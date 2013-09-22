@@ -47,9 +47,10 @@
         cardButton.alpha = (card.isUnplayable ? 0.3 : 1.0);
     }
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
+
     NSString *resultText = @"Flip a card!";
     if (self.game.recentActionResult) {
-        resultText = [NSString stringWithFormat:@"Result: %@", self.game.recentActionResult];
+        resultText = self.game.recentActionResult;
     }
     self.resultLabel.text = resultText;
     self.resultLabel.textAlignment = NSTextAlignmentCenter;

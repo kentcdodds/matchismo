@@ -14,6 +14,7 @@
 
 @property (readonly, nonatomic) int score;
 @property (readonly, nonatomic) NSString *recentActionResult;
+@property (readonly, nonatomic) int cardsToMatch;
 
 - (id)initWithCardCount:(NSUInteger)count usingDeck:(Deck *)deck;
 
