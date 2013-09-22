@@ -15,6 +15,7 @@
 @interface CardMatchingGame()
 
 @property (readwrite, nonatomic) int score;
+@property (readwrite, nonatomic) NSString *recentActionResult;
 
 @property (strong, nonatomic) NSMutableArray *cards; // of type Card
 
@@ -68,9 +69,11 @@
                         card.unplayable = YES;
                         otherCard.unplayable = YES;
                         self.score += matchScore * MATCH_BONUS;
+                        self.recentActionResult = @"Match Bonus";
                     } else {
                         otherCard.faceUp = NO;
                         self.score -= MISMATCH_PENALTY;
+                        self.recentActionResult = @"Match Penalty";
                     }
                     break;
                 }
@@ -80,5 +83,4 @@
         card.faceUp = !card.faceUp;
     }
 }
-
 @end

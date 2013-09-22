@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
 @property (nonatomic) int flipCount;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *resultLabel;
+
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 
 @property (strong, nonatomic) CardMatchingGame *game;
@@ -40,6 +42,7 @@
         cardButton.alpha = (card.isUnplayable ? 0.3 : 1.0);
     }
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
+    self.resultLabel.text = [NSString stringWithFormat:@"Result: %@", self.game.recentActionResult];
 }
 
 - (CardMatchingGame *)game
@@ -47,6 +50,7 @@
     if (!_game) {
         _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
                                                   usingDeck:[[PlayingCardDeck alloc] init]];
+        
     }
     return _game;
 }
