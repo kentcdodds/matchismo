@@ -25,6 +25,11 @@
 
 @implementation CardGameViewController
 
+- (void)viewDidLoad
+{
+    [self updateUI];
+}
+
 - (void)setCardButtons:(NSArray *)cardButtons
 {
     _cardButtons = cardButtons;
@@ -42,7 +47,19 @@
         cardButton.alpha = (card.isUnplayable ? 0.3 : 1.0);
     }
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
-    self.resultLabel.text = [NSString stringWithFormat:@"Result: %@", self.game.recentActionResult];
+    NSString *resultText = @"Flip a card!";
+    if (self.game.recentActionResult) {
+        resultText = [NSString stringWithFormat:@"Result: %@", self.game.recentActionResult];
+    }
+    self.resultLabel.text = resultText;
+    self.resultLabel.textAlignment = NSTextAlignmentCenter;
+    
+    [self.resultLabel setNumberOfLines:0];
+    [self.resultLabel sizeToFit];
+    
+    CGRect resultLabelFrame = self.resultLabel.frame;
+    resultLabelFrame = CGRectMake(resultLabelFrame.origin.x, resultLabelFrame.origin.y, 280, resultLabelFrame.size.height);
+    self.resultLabel.frame = resultLabelFrame;
 }
 
 - (CardMatchingGame *)game
@@ -50,7 +67,7 @@
     if (!_game) {
         _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
                                                   usingDeck:[[PlayingCardDeck alloc] init]];
-        
+
     }
     return _game;
 }
