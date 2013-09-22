@@ -64,5 +64,10 @@
     [self updateUI];
     
 }
+- (IBAction)redeal:(id)sender {
+    _game = nil;
+    [self setFlipCount:0];
+    [self updateUI];
+}
 
 @end
