@@ -41,10 +41,17 @@
 
 - (void)updateUI
 {
+    UIImage* steveImage = [UIImage imageNamed:@"steve"];
     for (UIButton *cardButton in self.cardButtons) {
         Card *card = [self.game cardAtIndex:[self.cardButtons indexOfObject:cardButton]];
         [cardButton setTitle:card.contents forState:UIControlStateSelected];
         [cardButton setTitle:card.contents forState:UIControlStateSelected|UIControlStateDisabled];
+        
+        if (!card.isFaceUp) {
+            [cardButton setImage:steveImage forState:UIControlStateNormal];
+        } else {
+            [cardButton setImage:nil forState:UIControlStateNormal];
+        }
         cardButton.selected = card.isFaceUp;
         cardButton.enabled = !card.isUnplayable;
         cardButton.alpha = (card.isUnplayable ? 0.3 : 1.0);
@@ -56,6 +63,7 @@
         resultText = self.game.recentActionResult;
     }
     self.resultLabel.text = resultText;
+    // All of this crazy stuff below to make it not loose it's width...
     self.resultLabel.textAlignment = NSTextAlignmentCenter;
     
     [self.resultLabel setNumberOfLines:0];

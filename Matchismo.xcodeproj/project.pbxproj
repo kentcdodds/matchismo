@@ -23,6 +23,7 @@
 		5B20E00516B2BC69001353A7 /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B20E00416B2BC69001353A7 /* PlayingCard.m */; };
 		5B20E00816B2C17A001353A7 /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B20E00716B2C17A001353A7 /* PlayingCardDeck.m */; };
 		5B24659A16C6BF4F0045E32C /* CardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B24659916C6BF4F0045E32C /* CardMatchingGame.m */; };
+		CB98502D17EEBF0A00D865F6 /* steve.png in Resources */ = {isa = PBXBuildFile; fileRef = CB98502C17EEBF0A00D865F6 /* steve.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		5B20E00716B2C17A001353A7 /* PlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayingCardDeck.m; path = Model/PlayingCardDeck.m; sourceTree = "<group>"; };
 		5B24659816C6BF4F0045E32C /* CardMatchingGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardMatchingGame.h; sourceTree = "<group>"; };
 		5B24659916C6BF4F0045E32C /* CardMatchingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardMatchingGame.m; sourceTree = "<group>"; };
+		CB98502C17EEBF0A00D865F6 /* steve.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = steve.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 		5B20DFE016B2B110001353A7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CB98502C17EEBF0A00D865F6 /* steve.png */,
 				5B20DFE816B2B110001353A7 /* CardGameAppDelegate.h */,
 				5B20DFE916B2B110001353A7 /* CardGameAppDelegate.m */,
 				5B20DFE116B2B110001353A7 /* Matchismo-Info.plist */,
@@ -196,6 +199,7 @@
 				5B20DFEC16B2B110001353A7 /* Default.png in Resources */,
 				5B20DFEE16B2B110001353A7 /* Default@2x.png in Resources */,
 				5B20DFF016B2B110001353A7 /* Default-568h@2x.png in Resources */,
+				CB98502D17EEBF0A00D865F6 /* steve.png in Resources */,
 				5B20DFF316B2B110001353A7 /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,7 +300,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Matchismo/Matchismo-Prefix.pch";
 				INFOPLIST_FILE = "Matchismo/Matchismo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -308,7 +312,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Matchismo/Matchismo-Prefix.pch";
 				INFOPLIST_FILE = "Matchismo/Matchismo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
