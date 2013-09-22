@@ -84,6 +84,8 @@
 
 - (IBAction)flipCard:(UIButton *)sender
 {
+    self.cardsToMatchStepper.enabled = NO;
+    self.cardsToMatchStepper.alpha = 0.3;
     [self.game flipCardAtIndex:[self.cardButtons indexOfObject:sender]];
     self.flipCount++;
     [self updateUI];
@@ -91,6 +93,8 @@
 }
 - (IBAction)redeal:(id)sender {
     _game = nil;
+    self.cardsToMatchStepper.enabled = YES;
+    self.cardsToMatchStepper.alpha = 1;
     [self setFlipCount:0];
     [self updateUI];
 }
