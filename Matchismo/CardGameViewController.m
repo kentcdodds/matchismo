@@ -63,7 +63,7 @@
         resultText = self.game.recentActionResult;
     }
     self.resultLabel.text = resultText;
-    // All of this crazy stuff below to make it not loose it's width...
+    // All of this crazy stuff below to make it not lose it's width...
     self.resultLabel.textAlignment = NSTextAlignmentCenter;
     
     [self.resultLabel setNumberOfLines:0];
@@ -100,12 +100,17 @@
     
 }
 - (IBAction)redeal:(id)sender {
+    [self tearDown];
+    [self updateUI];
+}
+
+- (void) tearDown {
     _game = nil;
     self.cardsToMatchStepper.enabled = YES;
     self.cardsToMatchStepper.alpha = 1;
     [self setFlipCount:0];
-    [self updateUI];
 }
+
 - (IBAction)updateCardsToMatch:(id)sender {
     self.cardsToMatchLabel.text = [NSString stringWithFormat:@"Match %d", (int)self.cardsToMatchStepper.value];
     [self.game setCardsToMatch: (int)self.cardsToMatchStepper.value];
