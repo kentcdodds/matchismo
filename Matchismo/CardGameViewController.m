@@ -48,9 +48,9 @@
         [cardButton setTitle:card.contents forState:UIControlStateSelected|UIControlStateDisabled];
         
         if (!card.isFaceUp) {
-            [cardButton setImage:steveImage forState:UIControlStateNormal];
+            [cardButton setBackgroundImage:steveImage forState:UIControlStateNormal];
         } else {
-            [cardButton setImage:nil forState:UIControlStateNormal];
+            [cardButton setBackgroundImage:nil forState:UIControlStateNormal];
         }
         cardButton.selected = card.isFaceUp;
         cardButton.enabled = !card.isUnplayable;
