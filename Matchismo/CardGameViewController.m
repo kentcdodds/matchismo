@@ -12,14 +12,11 @@
 
 @interface CardGameViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
-@property (nonatomic) int flipCount;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
 @property (weak, nonatomic) IBOutlet UILabel *cardsToMatchLabel;
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
-@property (weak, nonatomic) IBOutlet UIStepper *cardsToMatchStepper;
 
 @property (strong, nonatomic) CardMatchingGame *game;
 
@@ -84,36 +81,15 @@
     return _game;
 }
 
-- (void)setFlipCount:(int)flipCount
-{
-    _flipCount = flipCount;
-    self.flipsLabel.text = [NSString stringWithFormat:@"Flips: %d", flipCount];
-}
-
 - (IBAction)flipCard:(UIButton *)sender
 {
-    self.cardsToMatchStepper.enabled = NO;
-    self.cardsToMatchStepper.alpha = 0.3;
     [self.game flipCardAtIndex:[self.cardButtons indexOfObject:sender]];
-    self.flipCount++;
     [self updateUI];
     
 }
 - (IBAction)redeal:(id)sender {
-    [self tearDown];
-    [self updateUI];
-}
-
-- (void) tearDown {
     _game = nil;
-    self.cardsToMatchStepper.enabled = YES;
-    self.cardsToMatchStepper.alpha = 1;
-    [self setFlipCount:0];
-}
-
-- (IBAction)updateCardsToMatch:(id)sender {
-    self.cardsToMatchLabel.text = [NSString stringWithFormat:@"Match %d", (int)self.cardsToMatchStepper.value];
-    [self.game setCardsToMatch: (int)self.cardsToMatchStepper.value];
+    [self updateUI];
 }
 
 @end

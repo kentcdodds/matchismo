@@ -166,15 +166,8 @@
                                     <action selector="flipCard:" destination="2" eventType="touchUpInside" id="NZY-6l-br8"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Flips: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cmC-1j-D9f">
-                                <rect key="frame" x="20" y="386" width="68" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Score: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Fcv-5l-g39">
-                                <rect key="frame" x="20" y="370" width="68" height="21"/>
+                                <rect key="frame" x="20" y="403" width="68" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -233,7 +226,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="856-Mb-gWd">
-                                <rect key="frame" x="238" y="399" width="54" height="30"/>
+                                <rect key="frame" x="238" y="400" width="54" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Re-deal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -243,23 +236,10 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result here" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lqE-WU-4mg">
-                                <rect key="frame" x="182" y="362" width="125" height="37"/>
+                                <rect key="frame" x="28" y="370" width="264" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" wraps="YES" value="2" minimumValue="2" maximumValue="16" id="2fg-xS-RmO">
-                                <rect key="frame" x="88" y="370" width="94" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <action selector="updateCardsToMatch:" destination="2" eventType="valueChanged" id="t8a-ZA-yfP"/>
-                                </connections>
-                            </stepper>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Match 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nBt-bn-WpV">
-                                <rect key="frame" x="71" y="399" width="128" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -267,9 +247,6 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Match" image="spade.png" id="2oQ-Nc-g5o"/>
                     <connections>
-                        <outlet property="cardsToMatchLabel" destination="nBt-bn-WpV" id="7lz-Ce-8OA"/>
-                        <outlet property="cardsToMatchStepper" destination="2fg-xS-RmO" id="59s-FY-wAp"/>
-                        <outlet property="flipsLabel" destination="cmC-1j-D9f" id="Iu3-WD-vcO"/>
                         <outlet property="resultLabel" destination="lqE-WU-4mg" id="l01-6t-cWT"/>
                         <outlet property="scoreLabel" destination="Fcv-5l-g39" id="8Wr-0t-3J1"/>
                         <outletCollection property="cardButtons" destination="N6B-Bl-erX" id="IbV-iy-6WM"/>
