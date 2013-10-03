@@ -16,6 +16,21 @@
 
 @implementation Deck
 
+- (id)init
+{
+    self = [super init];
+    
+    if (self) {
+        [self setup];
+    }
+    
+    return self;
+}
+
+- (void)setup
+{
+}
+
 - (NSMutableArray *)cards
 {
     if (!_cards) _cards = [[NSMutableArray alloc] init];

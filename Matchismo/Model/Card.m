@@ -10,6 +10,21 @@
 
 @implementation Card
 
+- (id)init
+{
+    self = [super init];
+    
+    if (self) {
+        [self setup];
+    }
+    
+    return self;
+}
+
+- (void)setup
+{
+}
+
 - (int)match:(NSArray *)otherCards
 {
     int score = 0;
