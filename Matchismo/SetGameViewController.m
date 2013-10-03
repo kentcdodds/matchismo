@@ -10,6 +10,11 @@
 
 @interface SetGameViewController ()
 
+
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
+@property (weak, nonatomic) IBOutlet UILabel *resultsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+
 @end
 
 @implementation SetGameViewController
@@ -27,12 +32,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
