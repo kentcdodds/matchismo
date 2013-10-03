@@ -14,7 +14,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
-@property (weak, nonatomic) IBOutlet UILabel *cardsToMatchLabel;
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 
