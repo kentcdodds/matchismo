@@ -117,6 +117,29 @@
     self.contents = [NSString stringWithFormat:@"%@%@%@%@", color, shape, count, shade];
 }
 
+- (NSAttributedString *)getStringForCard
+{
+    UIColor *color = [self getUIColor];
+    NSString *stringContents = [self getDisplayString];
+    NSString *shade = [self getShade];
+    int strokeWidth = -3;
+    if ([shade isEqualToString:@"O"]) {
+        strokeWidth *= -1;
+    }
+    
+    NSDictionary *attributes = @{ NSFontAttributeName : [UIFont systemFontOfSize:16],
+                                  NSForegroundColorAttributeName: color,
+                                  NSStrokeWidthAttributeName: @(strokeWidth),
+                                  NSStrokeColorAttributeName: color };
+    NSMutableAttributedString *contents = [[NSMutableAttributedString alloc] initWithString:stringContents];
+    [contents setAttributes:attributes range:NSMakeRange(0, [contents length])];
+    
+    if ([shade isEqualToString:@"T"]) {
+        [contents addAttribute:NSForegroundColorAttributeName value:[attributes[NSForegroundColorAttributeName] colorWithAlphaComponent:0.1] range:NSMakeRange(0, [contents length])];
+    }
+    return contents;
+}
+
 //number (one, two, or three); symbol (circle, triangle, square); shading (solid, striped, or open); and color (red, green, or purple)
 + (NSArray *)validColors
 {

@@ -38,4 +38,9 @@
     return score;
 }
 
+- (NSString *)getDisplayString
+{
+    return self.contents;
+}
+
 @end

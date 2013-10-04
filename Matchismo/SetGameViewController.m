@@ -40,26 +40,7 @@
     for (UIButton *cardButton in self.cardButtons) {
         SetCard *card = (SetCard *) [self.game cardAtIndex:[self.cardButtons indexOfObject:cardButton]];
         
-        
-        UIColor *color = [card getUIColor];
-        NSString *stringContents = [card getDisplayString];
-        NSString *shade = [card getShade];
-        int strokeWidth = -3;
-        if ([shade isEqualToString:@"O"]) {
-            strokeWidth *= -1;
-        }
-        
-        
-        NSDictionary *attributes = @{ NSFontAttributeName : [UIFont systemFontOfSize:16],
-                                      NSForegroundColorAttributeName: color,
-                                      NSStrokeWidthAttributeName: @(strokeWidth),
-                                      NSStrokeColorAttributeName: color };
-        NSMutableAttributedString *contents = [[NSMutableAttributedString alloc] initWithString:stringContents];
-        [contents setAttributes:attributes range:NSMakeRange(0, [contents length])];
-        
-        if ([shade isEqualToString:@"T"]) {
-            [contents addAttribute:NSForegroundColorAttributeName value:[attributes[NSForegroundColorAttributeName] colorWithAlphaComponent:0.1] range:NSMakeRange(0, [contents length])];
-        }
+        NSAttributedString *contents = [card getStringForCard];
         
         [cardButton setAttributedTitle:contents forState:UIControlStateNormal];
         

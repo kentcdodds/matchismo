@@ -7,6 +7,7 @@
 //
 
 #import "CardMatchingGame.h"
+#import "Card.h"
 
 #define MATCH_BONUS 4
 #define MISMATCH_PENALTY 2
@@ -80,7 +81,6 @@
 {
     Card *card = [self cardAtIndex:index];
     NSString *newResult = @"";
-    
     if (card && !card.isUnplayable) {
         if (!card.isActive) {
             NSMutableArray *matchableCards = [[NSMutableArray alloc] init];
@@ -88,13 +88,13 @@
             for (Card *otherCard in self.cards) {
                 if (otherCard.isActive && !otherCard.isUnplayable) {
                     [matchableCards addObject:otherCard];
-                    [matchableContents addObject:otherCard.contents];
+                    [matchableContents addObject:[otherCard getDisplayString]];
                 }
             }
             NSString *combinedContents = [matchableContents componentsJoinedByString:@" & "];
             int matchScore = [card match:matchableCards];
-            if ([matchableCards count] < self.cardsToMatch - 1) {
-                newResult = [NSString stringWithFormat:@"%@ Tap\nPenalty:%d", card.contents, ACTIVATE_COST];
+            if ([matchableCards count] < self.cardsToMatch - 1) {;
+                newResult = [NSString stringWithFormat:@"%@ Tap\nPenalty:%d", [card getDisplayString], ACTIVATE_COST];
                 self.score -= ACTIVATE_COST;
             } else if (matchScore > 0) {
                 card.unplayable = YES;
@@ -105,7 +105,7 @@
                 self.score += matchScore * MATCH_BONUS;
                 newResult =
                 [NSString stringWithFormat:@"%@ matched %@\nBonus: %d",
-                 card.contents,
+                 [card getDisplayString],
                  combinedContents,
                  matchScore * MATCH_BONUS];
             } else {
@@ -116,7 +116,7 @@
                 self.score -= MISMATCH_PENALTY;
                 newResult =
                 [NSString stringWithFormat:@"%@ does not match %@\nPenalty: %d",
-                 card.contents,
+                 [card getDisplayString],
                  combinedContents,
                  MISMATCH_PENALTY];
             }
