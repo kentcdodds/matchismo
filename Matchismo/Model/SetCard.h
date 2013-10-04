@@ -10,6 +10,10 @@
 
 @interface SetCard : Card
 
+- (UIColor *)getUIColor;
+- (NSString *)getDisplayString;
+- (NSString *)getShade;
+
 -(void)setAttributes:(NSString *)color :(NSString *)shape :(NSString *)count :(NSString *)shade;
 + (NSArray *)validColors;
 + (NSArray *)validShapes;

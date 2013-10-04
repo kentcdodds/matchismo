@@ -78,6 +78,41 @@
     return [self.contents substringWithRange:NSMakeRange(index, 1)];
 }
 
+- (UIColor *)getUIColor
+{
+    NSString *color = [self getAttribute:COLOR_INDEX];
+    if ([color isEqualToString:@"R"]) {
+        return [UIColor redColor];
+    } else if ([color isEqualToString:@"G"]) {
+        return [UIColor greenColor];
+    } else if ([color isEqualToString:@"P"]) {
+        return [UIColor purpleColor];
+    } else {
+        return [UIColor blackColor];
+    }
+}
+
+- (NSString *)getDisplayString
+{
+    NSMutableString *displayString = [[NSMutableString alloc] init];
+    NSString *shape = [self getAttribute:SHAPE_INDEX];
+    for (int i = 0; i < [self getAttribute:COUNT_INDEX].intValue; i++) {
+        NSString *append = [NSString stringWithFormat:@"%@%@", (i != 0 ? @"" : @""), shape];
+        [displayString appendString:append];
+    }
+    return displayString;
+}
+
+- (NSString *)getShade
+{
+    return [self getAttribute:SHADE_INDEX];
+}
+
+- (int *)getCount
+{
+    return [self getAttribute:COUNT_INDEX].intValue;
+}
+
 - (void)setAttributes:(NSString *)color :(NSString *)shape :(NSString *)count :(NSString *)shade {
     self.contents = [NSString stringWithFormat:@"%@%@%@%@", color, shape, count, shade];
 }
@@ -90,7 +125,7 @@
 
 + (NSArray *)validShapes
 {
-    return [NSArray arrayWithObjects:@"●",@"▴",@"■", nil];
+    return [NSArray arrayWithObjects:@"●",@"▲",@"■", nil];
 }
 
 + (NSArray *)validCounts
