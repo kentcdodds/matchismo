@@ -10,7 +10,7 @@
 
 #define MATCH_BONUS 4
 #define MISMATCH_PENALTY 2
-#define FLIP_COST 1
+#define ACTIVATE_COST 1
 
 @interface CardMatchingGame()
 
@@ -76,42 +76,43 @@
     return (index < [self.cards count] ? self.cards[index] : nil);
 }
 
-- (void)flipCardAtIndex:(NSUInteger)index
+- (void)activateCardAtIndex:(NSUInteger)index
 {
     Card *card = [self cardAtIndex:index];
     NSString *newResult = @"";
     
     if (card && !card.isUnplayable) {
-        if (!card.isFaceUp) {
+        if (!card.isActive) {
             NSMutableArray *matchableCards = [[NSMutableArray alloc] init];
             NSMutableArray *matchableContents = [[NSMutableArray alloc] init];
             for (Card *otherCard in self.cards) {
-                if (otherCard.isFaceUp && !otherCard.isUnplayable) {
+                if (otherCard.isActive && !otherCard.isUnplayable) {
                     [matchableCards addObject:otherCard];
                     [matchableContents addObject:otherCard.contents];
                 }
             }
             NSString *combinedContents = [matchableContents componentsJoinedByString:@" & "];
             int matchScore = [card match:matchableCards];
-            if (matchScore) {
-                if ([matchableCards count] < self.cardsToMatch - 1) {
-                    newResult = [NSString stringWithFormat:@"%@ Flipped\nPenalty:%d", card.contents, FLIP_COST];
-                } else {
-                    card.unplayable = YES;
-                    for (Card *otherCard in matchableCards) {
-                        otherCard.unplayable = YES;
-                    }
-                    self.score += matchScore * MATCH_BONUS;
-                    newResult =
-                    [NSString stringWithFormat:@"%@ matched %@\nBonus: %d",
-                     card.contents,
-                     combinedContents,
-                     matchScore * MATCH_BONUS];
+            if ([matchableCards count] < self.cardsToMatch - 1) {
+                newResult = [NSString stringWithFormat:@"%@ Tap\nPenalty:%d", card.contents, ACTIVATE_COST];
+                self.score -= ACTIVATE_COST;
+            } else if (matchScore > 0) {
+                card.unplayable = YES;
+                for (Card *otherCard in matchableCards) {
+                    otherCard.unplayable = YES;
                 }
+                card.active = YES; // Forcing it to inactive.
+                self.score += matchScore * MATCH_BONUS;
+                newResult =
+                [NSString stringWithFormat:@"%@ matched %@\nBonus: %d",
+                 card.contents,
+                 combinedContents,
+                 matchScore * MATCH_BONUS];
             } else {
                 for (Card *otherCard in matchableCards) {
-                    otherCard.faceUp = NO;
+                    otherCard.active = NO;
                 }
+                card.active = YES; // Forcing it to inactive.
                 self.score -= MISMATCH_PENALTY;
                 newResult =
                 [NSString stringWithFormat:@"%@ does not match %@\nPenalty: %d",
@@ -119,9 +120,8 @@
                  combinedContents,
                  MISMATCH_PENALTY];
             }
-            self.score -= FLIP_COST;
         }
-        card.faceUp = !card.faceUp;
+        card.active = !card.isActive;
     }
     self.recentActionResult = newResult;
 }

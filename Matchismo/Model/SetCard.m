@@ -19,7 +19,7 @@
 
 @implementation SetCard
 
-- (BOOL)isFaceUp
+- (bool)isFaceUp
 {
     return true; // Set Cards are always face up.
 }
@@ -34,7 +34,7 @@
     [colorStrings addObject:[self getAttribute:COLOR_INDEX]];
     [shapeStrings addObject:[self getAttribute:SHAPE_INDEX]];
     [countStrings addObject:[self getAttribute:COUNT_INDEX]];
-    [countStrings addObject:[self getAttribute:SHADE_INDEX]];
+    [shadeStrings addObject:[self getAttribute:SHADE_INDEX]];
     
     for (SetCard *otherCard in otherCards) {
         [colorStrings addObject:[otherCard getAttribute:COLOR_INDEX]];
@@ -43,22 +43,30 @@
         [shadeStrings addObject:[otherCard getAttribute:SHADE_INDEX]];
     }
     
-    BOOL *passColor = [self matchOrNoMatch:colorStrings];
-    BOOL *passShape = [self matchOrNoMatch:shapeStrings];
-    BOOL *passCount = [self matchOrNoMatch:countStrings];
-    BOOL *passShade = [self matchOrNoMatch:shadeStrings];
+    bool *passColor = [self matchOrNoMatch:colorStrings];
+    bool *passShape = [self matchOrNoMatch:shapeStrings];
+    bool *passCount = [self matchOrNoMatch:countStrings];
+    bool *passShade = [self matchOrNoMatch:shadeStrings];
     
     return (passColor && passShape && passCount && passShade) ? SCORE : -SCORE;
 }
 
-- (BOOL)matchOrNoMatch:(NSArray *)strings
+- (bool)matchOrNoMatch:(NSArray *)strings
 {
-    BOOL *matching = strings[0] == strings[1];
+    if ([strings count] < 3) {
+        return false;
+    }
+    bool *matching = [strings[0] isEqualToString:strings[1]];
     for (int i = 2; i < [strings count]; i++) {
-        BOOL *match = strings[i] == strings[i - 1];
-        if (match != matching) {
-            // We match when we're not supposed to be or vice versa
-            return false;
+        for (int j = 0; j < [strings count]; j++) {
+            if (i == j) {
+                continue;
+            }
+            bool *match = [strings[i] isEqualToString:strings[j]];
+            if (match != matching) {
+                // We match when we're not supposed to be or vice versa
+                return false;
+            }
         }
     }
     // matchOrNoMatch if we make it this far
@@ -70,19 +78,11 @@
     return [self.contents substringWithRange:NSMakeRange(index, 1)];
 }
 
-- (void)setAttribute:(int)index :(NSString *)value
-{
-    [self.contents stringByReplacingOccurrencesOfString:self.contents withString:value options:0 range: (NSRange) {index, index}];
+- (void)setAttributes:(NSString *)color :(NSString *)shape :(NSString *)count :(NSString *)shade {
+    self.contents = [NSString stringWithFormat:@"%@%@%@%@", color, shape, count, shade];
 }
 
--(void)setAttributes:(NSString *)color :(NSString *)shape :(NSString *)count :(NSString *)shade {
-    [self setAttribute:COLOR_INDEX :color];
-    [self setAttribute:SHAPE_INDEX :shape];
-    [self setAttribute:COUNT_INDEX :count];
-    [self setAttribute:SHADE_INDEX :shade];
-}
-
-//number (one, two, or three); symbol (diamond, squiggle, oval); shading (solid, striped, or open); and color (red, green, or purple)
+//number (one, two, or three); symbol (circle, triangle, square); shading (solid, striped, or open); and color (red, green, or purple)
 + (NSArray *)validColors
 {
     return [NSArray arrayWithObjects:@"R",@"G",@"P", nil];
@@ -90,7 +90,7 @@
 
 + (NSArray *)validShapes
 {
-    return [NSArray arrayWithObjects:@"D",@"S",@"O", nil];
+    return [NSArray arrayWithObjects:@"●",@"▴",@"■", nil];
 }
 
 + (NSArray *)validCounts

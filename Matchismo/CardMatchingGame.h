@@ -19,7 +19,7 @@
 - (id)initWithCardCount:(NSUInteger)count usingDeck:(Deck *)deck;
 
 - (Card *)cardAtIndex:(NSUInteger)index;
-- (void)flipCardAtIndex:(NSUInteger)index;
+- (void)activateCardAtIndex:(NSUInteger)index;
 - (void)setCardsToMatch:(int)cardsToMatch;
 
 @end

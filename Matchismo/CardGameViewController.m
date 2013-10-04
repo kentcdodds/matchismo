@@ -12,10 +12,10 @@
 
 @interface CardGameViewController ()
 
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
 
-@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 
 @property (strong, nonatomic) CardMatchingGame *game;
 
@@ -43,12 +43,12 @@
         [cardButton setTitle:card.contents forState:UIControlStateSelected];
         [cardButton setTitle:card.contents forState:UIControlStateSelected|UIControlStateDisabled];
         
-        if (!card.isFaceUp) {
+        if (!card.isActive) {
             [cardButton setBackgroundImage:steveImage forState:UIControlStateNormal];
         } else {
             [cardButton setBackgroundImage:nil forState:UIControlStateNormal];
         }
-        cardButton.selected = card.isFaceUp;
+        cardButton.selected = card.isActive;
         cardButton.enabled = !card.isUnplayable;
         cardButton.alpha = (card.isUnplayable ? 0.3 : 1.0);
     }
@@ -82,11 +82,12 @@
 
 - (IBAction)flipCard:(UIButton *)sender
 {
-    [self.game flipCardAtIndex:[self.cardButtons indexOfObject:sender]];
+    [self.game activateCardAtIndex:[self.cardButtons indexOfObject:sender]];
     [self updateUI];
     
 }
-- (IBAction)redeal:(id)sender {
+- (IBAction)redeal:(id)sender
+{
     _game = nil;
     [self updateUI];
 }
