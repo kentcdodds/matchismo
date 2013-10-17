@@ -44,7 +44,7 @@
         
         [cardButton setAttributedTitle:contents forState:UIControlStateNormal];
         
-        cardButton.selected = card.isActive;
+        cardButton.selected = card.faceUp;
         cardButton.enabled = !card.isUnplayable;
         cardButton.alpha = (card.isUnplayable ? 0.1 : 1.0);
     }

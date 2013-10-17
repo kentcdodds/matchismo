@@ -10,24 +10,8 @@
 
 @implementation Card
 
-- (id)init
-{
-    self = [super init];
-    
-    if (self) {
-        [self setup];
-    }
-    
-    return self;
-}
-
-- (void)setup
-{
-}
-
-- (int)match:(NSArray *)otherCards
-{
-    int score = 0;
+- (NSInteger)match:(NSArray *)otherCards {
+    NSInteger score = 0;
     
     for (Card *card in otherCards) {
         if ([card.contents isEqualToString:self.contents]) {
@@ -36,11 +20,6 @@
     }
     
     return score;
-}
-
-- (NSString *)getDisplayString
-{
-    return self.contents;
 }
 
 @end

@@ -40,15 +40,16 @@
     UIImage* steveImage = [UIImage imageNamed:@"steve"];
     for (UIButton *cardButton in self.cardButtons) {
         Card *card = [self.game cardAtIndex:[self.cardButtons indexOfObject:cardButton]];
+        
         [cardButton setTitle:card.contents forState:UIControlStateSelected];
         [cardButton setTitle:card.contents forState:UIControlStateSelected|UIControlStateDisabled];
-        
-        if (!card.isActive) {
+
+        if (!card.faceUp) {
             [cardButton setBackgroundImage:steveImage forState:UIControlStateNormal];
         } else {
             [cardButton setBackgroundImage:nil forState:UIControlStateNormal];
         }
-        cardButton.selected = card.isActive;
+        cardButton.selected = card.faceUp;
         cardButton.enabled = !card.isUnplayable;
         cardButton.alpha = (card.isUnplayable ? 0.3 : 1.0);
     }

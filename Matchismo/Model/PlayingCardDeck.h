@@ -10,4 +10,6 @@
 
 @interface PlayingCardDeck : Deck
 
+- (void)setup;
+
 @end

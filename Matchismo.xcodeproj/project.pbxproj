@@ -23,6 +23,14 @@
 		5B20E00516B2BC69001353A7 /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B20E00416B2BC69001353A7 /* PlayingCard.m */; };
 		5B20E00816B2C17A001353A7 /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B20E00716B2C17A001353A7 /* PlayingCardDeck.m */; };
 		5B24659A16C6BF4F0045E32C /* CardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B24659916C6BF4F0045E32C /* CardMatchingGame.m */; };
+		CB20A6E8180F8CE300925831 /* PlayingCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB20A6E7180F8CE300925831 /* PlayingCardView.m */; };
+		CB20A6EB180F8D2000925831 /* RookCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB20A6EA180F8D2000925831 /* RookCardView.m */; };
+		CB20A6EE180F8D6D00925831 /* RookCard.m in Sources */ = {isa = PBXBuildFile; fileRef = CB20A6ED180F8D6D00925831 /* RookCard.m */; };
+		CB20A6F1180F8E3B00925831 /* RookCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = CB20A6F0180F8E3B00925831 /* RookCardDeck.m */; };
+		CB20A6F5180F94AE00925831 /* RookHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB20A6F4180F94AE00925831 /* RookHelpViewController.m */; };
+		CB20A6F8180F94D300925831 /* RookSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB20A6F7180F94D300925831 /* RookSetupViewController.m */; };
+		CB20A6FB180F94FB00925831 /* RookGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB20A6FA180F94FB00925831 /* RookGameViewController.m */; };
+		CB20A70E180FA47B00925831 /* RookCardCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB20A70D180FA47B00925831 /* RookCardCollectionViewCell.m */; };
 		CB3E60F117FD21E30037FF54 /* SetCard.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3E60F017FD21E30037FF54 /* SetCard.m */; };
 		CB3E60F417FD22070037FF54 /* SetDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3E60F317FD22070037FF54 /* SetDeck.m */; };
 		CB98502D17EEBF0A00D865F6 /* steve.png in Resources */ = {isa = PBXBuildFile; fileRef = CB98502C17EEBF0A00D865F6 /* steve.png */; };
@@ -58,6 +66,22 @@
 		5B20E00716B2C17A001353A7 /* PlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayingCardDeck.m; path = Model/PlayingCardDeck.m; sourceTree = "<group>"; };
 		5B24659816C6BF4F0045E32C /* CardMatchingGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardMatchingGame.h; sourceTree = "<group>"; };
 		5B24659916C6BF4F0045E32C /* CardMatchingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardMatchingGame.m; sourceTree = "<group>"; };
+		CB20A6E6180F8CE200925831 /* PlayingCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardView.h; sourceTree = "<group>"; };
+		CB20A6E7180F8CE300925831 /* PlayingCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardView.m; sourceTree = "<group>"; };
+		CB20A6E9180F8D2000925831 /* RookCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RookCardView.h; sourceTree = "<group>"; };
+		CB20A6EA180F8D2000925831 /* RookCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RookCardView.m; sourceTree = "<group>"; };
+		CB20A6EC180F8D6D00925831 /* RookCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RookCard.h; sourceTree = "<group>"; };
+		CB20A6ED180F8D6D00925831 /* RookCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RookCard.m; sourceTree = "<group>"; };
+		CB20A6EF180F8E3B00925831 /* RookCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RookCardDeck.h; sourceTree = "<group>"; };
+		CB20A6F0180F8E3B00925831 /* RookCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RookCardDeck.m; sourceTree = "<group>"; };
+		CB20A6F3180F94AE00925831 /* RookHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RookHelpViewController.h; sourceTree = "<group>"; };
+		CB20A6F4180F94AE00925831 /* RookHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RookHelpViewController.m; sourceTree = "<group>"; };
+		CB20A6F6180F94D300925831 /* RookSetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RookSetupViewController.h; sourceTree = "<group>"; };
+		CB20A6F7180F94D300925831 /* RookSetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RookSetupViewController.m; sourceTree = "<group>"; };
+		CB20A6F9180F94FB00925831 /* RookGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RookGameViewController.h; sourceTree = "<group>"; };
+		CB20A6FA180F94FB00925831 /* RookGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RookGameViewController.m; sourceTree = "<group>"; };
+		CB20A70C180FA47B00925831 /* RookCardCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RookCardCollectionViewCell.h; sourceTree = "<group>"; };
+		CB20A70D180FA47B00925831 /* RookCardCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RookCardCollectionViewCell.m; sourceTree = "<group>"; };
 		CB3E60EF17FD21E30037FF54 /* SetCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetCard.h; path = Model/SetCard.h; sourceTree = "<group>"; };
 		CB3E60F017FD21E30037FF54 /* SetCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetCard.m; path = Model/SetCard.m; sourceTree = "<group>"; };
 		CB3E60F217FD22070037FF54 /* SetDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetDeck.h; path = Model/SetDeck.h; sourceTree = "<group>"; };
@@ -113,11 +137,10 @@
 		5B20DFDF16B2B110001353A7 /* Matchismo */ = {
 			isa = PBXGroup;
 			children = (
+				CB20A6F2180F949100925831 /* Rook */,
+				CB20A6E5180F8C8800925831 /* Views */,
+				CB20A6E4180F8BD200925831 /* Controllers */,
 				5B20DFF116B2B110001353A7 /* MainStoryboard.storyboard */,
-				5B20DFF416B2B110001353A7 /* CardGameViewController.h */,
-				5B20DFF516B2B110001353A7 /* CardGameViewController.m */,
-				CBCEC8C917FA827700085803 /* SetGameViewController.h */,
-				CBCEC8CA17FA827700085803 /* SetGameViewController.m */,
 				5B20E00216B2B78C001353A7 /* Model */,
 				5B20DFE016B2B110001353A7 /* Supporting Files */,
 			);
@@ -146,8 +169,6 @@
 		5B20E00216B2B78C001353A7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5B24659816C6BF4F0045E32C /* CardMatchingGame.h */,
-				5B24659916C6BF4F0045E32C /* CardMatchingGame.m */,
 				5B20DFFC16B2B734001353A7 /* Card.h */,
 				5B20DFFD16B2B734001353A7 /* Card.m */,
 				5B20DFFF16B2B771001353A7 /* Deck.h */,
@@ -160,8 +181,51 @@
 				CB3E60F017FD21E30037FF54 /* SetCard.m */,
 				CB3E60F217FD22070037FF54 /* SetDeck.h */,
 				CB3E60F317FD22070037FF54 /* SetDeck.m */,
+				CB20A6EC180F8D6D00925831 /* RookCard.h */,
+				CB20A6ED180F8D6D00925831 /* RookCard.m */,
+				CB20A6EF180F8E3B00925831 /* RookCardDeck.h */,
+				CB20A6F0180F8E3B00925831 /* RookCardDeck.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		CB20A6E4180F8BD200925831 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5B20DFF416B2B110001353A7 /* CardGameViewController.h */,
+				5B20DFF516B2B110001353A7 /* CardGameViewController.m */,
+				CBCEC8C917FA827700085803 /* SetGameViewController.h */,
+				CBCEC8CA17FA827700085803 /* SetGameViewController.m */,
+				5B24659816C6BF4F0045E32C /* CardMatchingGame.h */,
+				5B24659916C6BF4F0045E32C /* CardMatchingGame.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		CB20A6E5180F8C8800925831 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CB20A6E6180F8CE200925831 /* PlayingCardView.h */,
+				CB20A6E7180F8CE300925831 /* PlayingCardView.m */,
+				CB20A6E9180F8D2000925831 /* RookCardView.h */,
+				CB20A6EA180F8D2000925831 /* RookCardView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		CB20A6F2180F949100925831 /* Rook */ = {
+			isa = PBXGroup;
+			children = (
+				CB20A6F3180F94AE00925831 /* RookHelpViewController.h */,
+				CB20A6F4180F94AE00925831 /* RookHelpViewController.m */,
+				CB20A6F6180F94D300925831 /* RookSetupViewController.h */,
+				CB20A6F7180F94D300925831 /* RookSetupViewController.m */,
+				CB20A6F9180F94FB00925831 /* RookGameViewController.h */,
+				CB20A6FA180F94FB00925831 /* RookGameViewController.m */,
+				CB20A70C180FA47B00925831 /* RookCardCollectionViewCell.h */,
+				CB20A70D180FA47B00925831 /* RookCardCollectionViewCell.m */,
+			);
+			name = Rook;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,7 +299,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B20DFE616B2B110001353A7 /* main.m in Sources */,
+				CB20A6EB180F8D2000925831 /* RookCardView.m in Sources */,
+				CB20A70E180FA47B00925831 /* RookCardCollectionViewCell.m in Sources */,
+				CB20A6EE180F8D6D00925831 /* RookCard.m in Sources */,
+				CB20A6F8180F94D300925831 /* RookSetupViewController.m in Sources */,
+				CB20A6E8180F8CE300925831 /* PlayingCardView.m in Sources */,
 				CBCEC8CB17FA827700085803 /* SetGameViewController.m in Sources */,
+				CB20A6F1180F8E3B00925831 /* RookCardDeck.m in Sources */,
+				CB20A6FB180F94FB00925831 /* RookGameViewController.m in Sources */,
+				CB20A6F5180F94AE00925831 /* RookHelpViewController.m in Sources */,
 				5B20DFEA16B2B110001353A7 /* CardGameAppDelegate.m in Sources */,
 				5B20DFF616B2B110001353A7 /* CardGameViewController.m in Sources */,
 				CB3E60F117FD21E30037FF54 /* SetCard.m in Sources */,

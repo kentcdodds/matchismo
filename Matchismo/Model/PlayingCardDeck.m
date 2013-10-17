@@ -11,13 +11,26 @@
 
 @implementation PlayingCardDeck
 
-- (void)setup
-{
+- (id)init {
+    self = [super init];
+    
+    if (self) {
+        [self setup];
+    }
+    
+    return self;
+}
+
+// By factoring out the initialization code to a setup method,
+// we can override it in subclasses.
+- (void)setup {
     for (NSString *suit in [PlayingCard validSuits]) {
         for (NSUInteger rank = 1; rank <= [PlayingCard maxRank]; rank++) {
             PlayingCard *card = [[PlayingCard alloc] init];
+            
             card.rank = rank;
             card.suit = suit;
+            
             [self addCard:card atTop:YES];
         }
     }

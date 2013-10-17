@@ -82,46 +82,46 @@
     Card *card = [self cardAtIndex:index];
     NSString *newResult = @"";
     if (card && !card.isUnplayable) {
-        if (!card.isActive) {
+        if (!card.faceUp) {
             NSMutableArray *matchableCards = [[NSMutableArray alloc] init];
             NSMutableArray *matchableContents = [[NSMutableArray alloc] init];
             for (Card *otherCard in self.cards) {
-                if (otherCard.isActive && !otherCard.isUnplayable) {
+                if (otherCard.faceUp && !otherCard.isUnplayable) {
                     [matchableCards addObject:otherCard];
-                    [matchableContents addObject:[otherCard getDisplayString]];
+                    [matchableContents addObject:otherCard.contents];
                 }
             }
             NSString *combinedContents = [matchableContents componentsJoinedByString:@" & "];
             int matchScore = [card match:matchableCards];
-            if ([matchableCards count] < self.cardsToMatch - 1) {;
-                newResult = [NSString stringWithFormat:@"%@ Tap\nPenalty:%d", [card getDisplayString], ACTIVATE_COST];
+            if ([matchableCards count] < self.cardsToMatch - 1) {
+                newResult = [NSString stringWithFormat:@"%@ Tap\nPenalty:%d", card.contents, ACTIVATE_COST];
                 self.score -= ACTIVATE_COST;
             } else if (matchScore > 0) {
                 card.unplayable = YES;
                 for (Card *otherCard in matchableCards) {
                     otherCard.unplayable = YES;
                 }
-                card.active = YES; // Forcing it to inactive.
+                card.faceUp = YES; // Forcing it to inactive.
                 self.score += matchScore * MATCH_BONUS;
                 newResult =
                 [NSString stringWithFormat:@"%@ matched %@\nBonus: %d",
-                 [card getDisplayString],
+                 card.contents,
                  combinedContents,
                  matchScore * MATCH_BONUS];
             } else {
                 for (Card *otherCard in matchableCards) {
-                    otherCard.active = NO;
+                    otherCard.faceUp = YES;
                 }
-                card.active = YES; // Forcing it to inactive.
+                card.faceUp = YES; // Forcing it to inactive.
                 self.score -= MISMATCH_PENALTY;
                 newResult =
                 [NSString stringWithFormat:@"%@ does not match %@\nPenalty: %d",
-                 [card getDisplayString],
+                 card.contents,
                  combinedContents,
                  MISMATCH_PENALTY];
             }
         }
-        card.active = !card.isActive;
+        card.faceUp = !card.faceUp;
     }
     self.recentActionResult = newResult;
 }

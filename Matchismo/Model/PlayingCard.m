@@ -8,77 +8,83 @@
 
 #import "PlayingCard.h"
 
-#define SUIT_POINTS     1
-#define RANK_POINTS     4
+#define RANK_MATCH_SCORE    4
+#define SUIT_MATCH_SCORE    1
 
 @implementation PlayingCard
 
-- (NSString *)contents
-{
-    NSArray *rankStrings = [PlayingCard rankStrings];
-    return [rankStrings[self.rank] stringByAppendingString:self.suit];
+@synthesize suit = _suit; // because we provide setter AND getter
+
+- (NSString *)suit {
+    return _suit ? _suit : @"?";
 }
 
-@synthesize suit = _suit; // because we provide setter && getter
-
-- (void)setSuit:(NSString *)suit
-{
-    if ([[PlayingCard validSuits] containsObject:suit]) {
+- (void)setSuit:(NSString *)suit {
+    // By calling [self class] instead of [PlayingCard class]
+    // we allow subclasses to override the validSuits call
+    // without having to rewrite this suit setter.
+    if ([[[self class] validSuits] containsObject:suit]) {
         _suit = suit;
     }
 }
 
-- (NSString *)suit
-{
-    return _suit ? _suit : @"?";
-}
-
-- (void)setRank:(NSUInteger)rank
-{
-    if (rank <= [PlayingCard maxRank]) {
+- (void)setRank:(NSUInteger)rank {
+    if (rank <= [[self class] maxRank]) {
         _rank = rank;
     }
 }
 
-- (int)match:(NSArray *)otherCards
-{
-    int score = 0;
+#pragma mark - Overridden methods
+
+- (NSString *)contents {
+    NSArray *rankStrings = [[self class] validRanks];
+    return [rankStrings[self.rank] stringByAppendingString:self.suit];
+}
+
+- (NSInteger)match:(NSArray *)otherCards {
+    NSInteger score = 0;
     
-    for (PlayingCard *otherCard in otherCards) {
-        if ([otherCard.suit isEqualToString:self.suit]) {
-            score += SUIT_POINTS;
-        } else if (otherCard.rank == self.rank) {
-            score += RANK_POINTS;
-        } else {
-            return 0; // If they don't all match one way or another, then too bad.
+    if ([otherCards count] == 1) {
+        id otherCard = [otherCards lastObject];
+        
+        if ([otherCard isKindOfClass:[PlayingCard class]]) {
+            PlayingCard *otherPlayingCard = (PlayingCard *)otherCard;
+            
+            if ([otherPlayingCard.suit isEqualToString:self.suit]) {
+                score = SUIT_MATCH_SCORE;
+            } else if (otherPlayingCard.rank == self.rank) {
+                score = RANK_MATCH_SCORE;
+            }
         }
     }
-    /*
-    NSLog([NSString stringWithFormat:@"Card Count: %d", [otherCards count]]);
     
-    // Multiply score by 0.5 for every card above 1 that matches.
-    if ([otherCards count] > 1) {
-        NSLog([NSString stringWithFormat: @"Multiplying score: %d", score]);
-        score = score * ([otherCards count] + 1) / 2;
-        NSLog([NSString stringWithFormat: @"Multiplied score: %d", score]);
-    }*/
-
     return score;
 }
 
-+ (NSArray *)validSuits
-{
-    return @[@"♥", @"♦", @"♠", @"♣"];
+#pragma mark - Class methods
+
++ (NSUInteger)maxRank {
+    return [self validRanks].count - 1;
 }
 
-+ (NSArray *)rankStrings
-{
-    return @[@"?", @"A", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"J", @"Q", @"K"];
++ (NSArray *)validRanks {
+    static NSArray *ranks;
+    
+    if (!ranks) {
+        ranks = @[@"?",@"A",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"J",@"Q",@"K"];
+    }
+    
+    return ranks;
 }
 
-+ (NSUInteger)maxRank
-{
-    return [self rankStrings].count - 1;
++ (NSArray *)validSuits {
+    static NSArray *suits;
+    
+    if (!suits) {
+        suits = @[@"♥",@"♦",@"♠",@"♣"];
+    }
+    
+    return suits;
 }
 
 @end

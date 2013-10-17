@@ -19,7 +19,7 @@
 
 @implementation SetCard
 
-- (bool)isFaceUp
+- (bool)faceUp
 {
     return true; // Set Cards are always face up.
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="bFF-oM-EGa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="bFF-oM-EGa">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
@@ -284,11 +284,12 @@
                     <connections>
                         <segue destination="2" kind="relationship" relationship="viewControllers" id="uS6-4L-zRj"/>
                         <segue destination="Ep0-88-Ia3" kind="relationship" relationship="viewControllers" id="IrV-L7-o9D"/>
+                        <segue destination="Uh5-JM-ral" kind="relationship" relationship="viewControllers" id="PYf-Up-CJX"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vxb-ep-Ssx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-496" y="416"/>
+            <point key="canvasLocation" x="-508" y="454"/>
         </scene>
         <!--Set Game View Controller - Set-->
         <scene sceneID="PyJ-Xz-1Ua">
@@ -684,6 +685,99 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pik-zV-vuo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="93" y="668"/>
+        </scene>
+        <!--Navigation Controller - Item-->
+        <scene sceneID="u4X-hJ-br8">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="Uh5-JM-ral" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="zhF-8h-43W"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VR3-un-zxs">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="3L3-If-Q1e" kind="relationship" relationship="rootViewController" id="KxO-EV-S4e"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mFt-IZ-ggW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-78" y="1259"/>
+        </scene>
+        <!--Rook Setup View Controller-->
+        <scene sceneID="Xm2-ws-V4A">
+            <objects>
+                <viewController id="3L3-If-Q1e" customClass="RookSetupViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jgA-7j-r67">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ozg-jq-VMz">
+                                <rect key="frame" x="136" y="268" width="61" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Deal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ycD-g5-33R" kind="push" id="boo-ai-m4e"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="MS5-CB-dgu">
+                                <rect key="frame" x="57" y="191" width="218" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="2"/>
+                                    <segment title="3"/>
+                                    <segment title="4"/>
+                                    <segment title="5"/>
+                                    <segment title="6"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yb7-OL-oTx"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VsS-9y-AMM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="403" y="1239"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Ozu-Oq-heW">
+            <objects>
+                <viewController id="ycD-g5-33R" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gOX-6u-jYA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="wHp-CB-TfF">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.11881910230000001" green="0.55059018339999999" blue="0.077080717859999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pEJ-ey-4Km">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="wrN-2b-nUt" customClass="RookCardCollectionViewCell">
+                                        <rect key="frame" x="0.0" y="64" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.11881910227406907" green="0.55059018342391308" blue="0.077080717863274514" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="AZE-rY-1x6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VO7-aM-uzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="817" y="1259"/>
         </scene>
     </scenes>
     <resources>

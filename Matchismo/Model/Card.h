@@ -6,16 +6,14 @@
 //  Copyright (c) 2013 Kent C. Dodds. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <Foundation/NSObject.h>
 
 @interface Card : NSObject
 
 @property (strong, nonatomic) NSString *contents;
-
-@property (nonatomic, getter = isActive) BOOL active;
+@property (nonatomic, getter = isFaceUp) BOOL faceUp;
 @property (nonatomic, getter = isUnplayable) BOOL unplayable;
 
-- (int)match:(NSArray *)otherCards;
-- (NSString *)getDisplayString;
+- (NSInteger)match:(NSArray *)otherCards;
 
 @end

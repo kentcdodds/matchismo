@@ -12,7 +12,8 @@
 @interface Deck : NSObject
 
 - (void)addCard:(Card *)card atTop:(BOOL)atTop;
-
+- (Card *)drawLastCard;
 - (Card *)drawRandomCard;
+- (BOOL)isEmpty;
 
 @end
