@@ -1,11 +1,10 @@
 //
 //  PlayingCardView.m
-//  Matchismo
+//  SuperCard
 //
-//  Created by Kent Dodds on 10/16/13.
-//  Copyright (c) 2013 Kent C. Dodds. All rights reserved.
+//  Created by Steve Liddle on 10/2/13.
+//  Copyright (c) 2013 Brigham Young University. All rights reserved.
 //
-
 #import "PlayingCardView.h"
 
 @interface PlayingCardView()
@@ -53,7 +52,7 @@
     if (!_faceCardScaleFactor) {
         _faceCardScaleFactor = DEFAULT_FACE_CARD_SCALE_FACTOR;
     }
-    
+
     return _faceCardScaleFactor;
 }
 
@@ -93,27 +92,27 @@
     if (self.isFaceUp) {
         NSString *cardFilename = [NSString stringWithFormat:@"%@%@", self.rankAsString, self.suit];
         UIImage *faceImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", cardFilename]];
-        
+
         if (!faceImage) {
             faceImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg", cardFilename]];
         }
-        
+
         if (faceImage) {
             CGRect imageRect = CGRectInset(self.bounds,
                                            self.bounds.size.width * (1.0 - self.faceCardScaleFactor),
                                            self.bounds.size.height * (1.0 - self.faceCardScaleFactor)
                                            );
-            
+
             [faceImage drawInRect:imageRect];
         } else {
             [self drawFace];
         }
-        
+
         [self drawCorners];
     } else {
         [[UIImage imageNamed:cardback] drawInRect:self.bounds];
     }
-    
+
     [[UIColor blackColor] setStroke];
     [roundedRect stroke];
 }
@@ -122,7 +121,7 @@
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.alignment = NSTextAlignmentCenter;
     paragraphStyle.lineHeightMultiple = CORNER_LINE_HEIGHT;
-    
+
     UIFont *cornerFont = [UIFont systemFontOfSize:self.bounds.size.width * PIP_FONT_SCALE_FACTOR];
     UIFont *cornerPipFont = [UIFont systemFontOfSize:self.bounds.size.width * PIP_FONT_SCALE_FACTOR * CORNER_PIP_SCALE_FACTOR];
     NSString *cornerString = [NSString stringWithFormat:@"%@\n%@", [self rankAsString], self.suit];
@@ -134,12 +133,12 @@
                                                           }];
     [cornerText addAttributes:@{ NSFontAttributeName : cornerPipFont }
                         range:NSMakeRange(cornerString.length - 1, 1)];
-    
+
     CGRect textBounds;
     textBounds.origin = CGPointMake(CORNER_X_OFFSET, CORNER_Y_OFFSET);
     textBounds.size = [cornerText size];
     [cornerText drawInRect:textBounds];
-    
+
     [self pushContextAndRotateUpsideDown];
     [cornerText drawInRect:textBounds];
     [self popContext];

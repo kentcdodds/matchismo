@@ -2,10 +2,9 @@
 //  PlayingCard.m
 //  Matchismo
 //
-//  Created by Kent Dodds on 9/21/13.
-//  Copyright (c) 2013 Kent C. Dodds. All rights reserved.
+//  Created by Steve Liddle on 9/4/13.
+//  Copyright (c) 2013 Brigham Young University. All rights reserved.
 //
-
 #import "PlayingCard.h"
 
 #define RANK_MATCH_SCORE    4
@@ -43,7 +42,7 @@
 
 - (NSInteger)match:(NSArray *)otherCards {
     NSInteger score = 0;
-    
+
     if ([otherCards count] == 1) {
         id otherCard = [otherCards lastObject];
         
@@ -57,7 +56,7 @@
             }
         }
     }
-    
+
     return score;
 }
 

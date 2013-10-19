@@ -1,11 +1,10 @@
 //
 //  RookCardView.h
-//  Matchismo
+//  SuperCard
 //
-//  Created by Kent Dodds on 10/16/13.
-//  Copyright (c) 2013 Kent C. Dodds. All rights reserved.
+//  Created by Steve Liddle on 10/7/13.
+//  Copyright (c) 2013 Brigham Young University. All rights reserved.
 //
-
 #import "PlayingCardView.h"
 
 @interface RookCardView : PlayingCardView
