@@ -73,7 +73,11 @@
     
     [roundedRect addClip];
     // Here you could choose a different background color if the card is selected
-    [[UIColor whiteColor] setFill];
+    if ([self isSelected]) {
+        [[UIColor grayColor] setFill];
+    } else {
+        [[UIColor whiteColor] setFill];
+    }
     UIRectFill(self.bounds);
     
     if (self.isFaceUp) {

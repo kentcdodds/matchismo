@@ -14,8 +14,7 @@
 
 @interface RookGame : NSObject
 
-// TODO: you want a public property here for highBidder
-//       (and integer, the index of the high bidder, or -1 if none designated)
+@property (nonatomic, setter = setHighBidder:) NSInteger highBidder;
 
 // Designated initializer
 - (id)initWithNumberOfPlayers:(NSUInteger)numberOfPlayers;

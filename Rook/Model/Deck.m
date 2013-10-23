@@ -43,15 +43,17 @@
 }
 
 - (NSMutableArray *)drawRandomCards:(NSUInteger)cardCount {
-    // This method is helpful for dealing cards in a Rook game
-    // If cardCount is positive, do this:
-    //    1. Make a mutable array
-    //    2. Draw a random card and add it to the array
-    //    3. Repeat step 2 as many times as cardCount
-    //    4. Sort the array using RookCard's "compareCard:" selector
-    //    5. Return a mutable copy of of the sorted array
-    // Else return nil
-    return nil;
+    if (cardCount > 0) {
+        NSMutableArray *array = [[NSMutableArray alloc] init];
+        for (int i = 0; i < cardCount; i++) {
+            [array addObject:[self drawRandomCard]];
+        }
+        SEL selector = @selector(compareCard:);
+        NSArray *sortedArray = [array sortedArrayUsingSelector:selector];
+        return [sortedArray mutableCopy];
+    } else {
+        return nil;
+    }
 }
 
 - (BOOL)isEmpty {

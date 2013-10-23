@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="0V8-lV-clk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="0V8-lV-clk">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <scenes>
         <!--Rook Setup View Controller - Setup Rook Game-->
@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="M55-he-jaJ">
-                                <rect key="frame" x="20" y="99" width="280" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="M55-he-jaJ">
+                                <rect key="frame" x="20" y="149" width="281" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="2"/>
@@ -27,13 +27,13 @@
                                     <segment title="6"/>
                                 </segments>
                             </segmentedControl>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of Players" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tAG-fp-2bq">
-                                <rect key="frame" x="89" y="70" width="143" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Players" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tAG-fp-2bq">
+                                <rect key="frame" x="89" y="120" width="143" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6c-cZ-Tgf">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6c-cZ-Tgf">
                                 <rect key="frame" x="145" y="197" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Deal">
@@ -45,6 +45,15 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="M55-he-jaJ" firstAttribute="top" secondItem="tAG-fp-2bq" secondAttribute="bottom" constant="8" id="WnI-vW-XB2"/>
+                            <constraint firstAttribute="centerX" secondItem="j6c-cZ-Tgf" secondAttribute="centerX" id="WzB-C8-WsH"/>
+                            <constraint firstItem="M55-he-jaJ" firstAttribute="centerX" secondItem="tAG-fp-2bq" secondAttribute="centerX" id="gcG-a4-Dr7"/>
+                            <constraint firstItem="j6c-cZ-Tgf" firstAttribute="top" secondItem="M55-he-jaJ" secondAttribute="bottom" constant="20" id="l8o-VG-B7c"/>
+                            <constraint firstItem="M55-he-jaJ" firstAttribute="centerX" secondItem="j6c-cZ-Tgf" secondAttribute="centerX" id="u8I-Ec-xf1"/>
+                            <constraint firstItem="M55-he-jaJ" firstAttribute="leading" secondItem="gTs-9N-I2W" secondAttribute="leading" constant="20" symbolic="YES" id="yae-rd-hV5"/>
+                            <constraint firstAttribute="centerY" secondItem="j6c-cZ-Tgf" secondAttribute="centerY" constant="-4" id="z7r-dY-9wj"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Setup Rook Game" id="lv8-Rf-mrP">
@@ -77,7 +86,7 @@
                             <color key="backgroundColor" red="0.063199116420000007" green="0.68458116319999995" blue="0.28796651299999998" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="70g-4d-xdh" customClass="RookCardCollectionViewCell">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RookCardCell" id="70g-4d-xdh" customClass="RookCardCollectionViewCell">
                                 <rect key="frame" x="5" y="69" width="68" height="98"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -97,6 +106,9 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <outlet property="rookCardView" destination="L2l-wD-2KI" id="q5O-hN-ozC"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -105,13 +117,29 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Player 1" id="lMb-xb-viS">
-                        <barButtonItem key="leftBarButtonItem" title="High Bidder" id="E9E-Pb-dV3"/>
-                        <barButtonItem key="rightBarButtonItem" title="Next Player" id="h7D-Bg-IkY"/>
+                        <barButtonItem key="leftBarButtonItem" title="High Bidder" id="E9E-Pb-dV3">
+                            <connections>
+                                <action selector="designateHighBidder:" destination="Soj-1d-EAJ" id="Kp0-Jg-Hop"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Next Player" id="h7D-Bg-IkY">
+                            <connections>
+                                <action selector="nextPlayer:" destination="Soj-1d-EAJ" id="kYE-3H-ccn"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bmM-Ps-L0t" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Q2U-qU-gyg"/>
-                <swipeGestureRecognizer direction="right" id="oFa-k7-RBN"/>
+                <tapGestureRecognizer id="Q2U-qU-gyg">
+                    <connections>
+                        <action selector="selectCard:" destination="Soj-1d-EAJ" id="qAB-aj-Jga"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="oFa-k7-RBN">
+                    <connections>
+                        <action selector="flipCard:" destination="Soj-1d-EAJ" id="8eQ-HC-IVv"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1348" y="-858"/>
         </scene>
